@@ -1,9 +1,10 @@
 package livro;
 
+import usuario.Reserva;
+
 public class Disponibilidade {
     private float livrosDisponiveis;
     private float livrosEmEmprestimo;
-
     public Disponibilidade(float livrosDisponiveis, float livrosEmEmprestimo){
         this.livrosDisponiveis = livrosDisponiveis;
         this.livrosEmEmprestimo = livrosEmEmprestimo;
@@ -31,6 +32,16 @@ public class Disponibilidade {
             return false;
         }
     }
+
+    public String alugarLivro(Insercao insercao, Reserva reserva) {
+        if ((insercao.getLivro() > 0) && !reserva.getLivroReservado()) {
+            return "É possivel alugar Livro";
+        } else {
+            return "Não é possivel alugar livro";
+        }
+    }
+
+
 
 
 }
